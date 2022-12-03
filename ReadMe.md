@@ -2,7 +2,7 @@
 ## Assignment: Project 2
 ### Group Members
 - Makaio Boodram
-- Dominic Olukyga
+- Dominic Olukoga
 - Deondre Mayers
 - Julian Piper
-- Kyle KIng
+- Kyle King
