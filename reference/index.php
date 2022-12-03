@@ -1,23 +1,7 @@
-// Copyright 2022 Kyle King
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 <?php
 	if(isset($_SESSION['logined_user'])){
-        header("Location:http://localhost/finalproject/dashboard.php" );
-        
+        header("Location:http://localhost/finalproject/dashboard.php" );  
     }
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +9,6 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href = "styles.css">
         <script type="text/javascript" src="login.js"></script>
-        
     </head>
     <body>
         <div class="container">
@@ -53,4 +36,4 @@
 </html>
 <?php if (isset($_POST['loginbtn'])){
         include('userlogin.php');
-    }
+}

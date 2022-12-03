@@ -50,5 +50,4 @@ if ($emailCondition && $passwordCondition)
         }
     endforeach;
 }
-
 ?>
