@@ -14,14 +14,12 @@
 
 const httpRequest = new XMLHttpRequest()
 
-function pos
-
 window.onload = (evt) => {
     httpRequest.onreadystatechange = (evt)=>{
         if(httpRequest.status == XMLHttpRequest.DONE){
             if(httpRequest.readyState == XMLHttpRequest.DONE){
                 if(httpRequest.status == 200){
-
+                    
                 }
             }
         }
