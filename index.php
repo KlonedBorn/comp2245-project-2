@@ -9,6 +9,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href = "styles.css">
         <script type="text/javascript" src="login.js"></script>
+        <script type="text/javascript" src="index.js"></script>
     </head>
     <body>
         <div class="container">
@@ -27,7 +28,7 @@
                     <br>
                     <input type="text" name="userpassword" id="password">
                     <br><br>
-                    <button type="submit" name="loginbtn" id="loginbtn"> Login </button>
+                    <button type="submit" name="loginbtn" id="loginbtn" onclick="return Vali()  "> Login </button>
                 </form>
                 <span id="error"></span>
             </div>

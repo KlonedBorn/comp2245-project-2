@@ -20,6 +20,6 @@ require 'dbconfig.php';
             }
         }
     }else{
-        echo "<p id=loginerror'>Login Failed. Invalid Email-address or Password</p>";
+        echo "<p id=\'loginerror\'>Login Failed. Invalid Email-address or Password</p>";
     }
 ?> 
