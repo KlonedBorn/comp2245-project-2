@@ -1,11 +1,9 @@
 <?php session_start();
-// ('1', 'kyle', 'dominic', 'helloworld', 'gogomail@gmail,com', 'student', '11/11/19')
 require 'dbconfig.php';
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $useremail= filter_input(INPUT_POST,"useremail",FILTER_SANITIZE_EMAIL); 
     $userpassword= filter_input(INPUT_POST,"userpassword",FILTER_SANITIZE_STRING);
     $useremail= filter_var($useremail,FILTER_VALIDATE_EMAIL);
-    // Removes repeated values.
     $findps=$conn->query("SELECT DISTINCT password FROM Users WHERE email='$useremail'");
     $ps= $findps->fetchAll(PDO::FETCH_ASSOC);
     $hps = (isset($ps[0]['password']))? $ps[0]['password'] : null;
