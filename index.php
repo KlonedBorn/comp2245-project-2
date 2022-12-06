@@ -19,22 +19,17 @@
             </header>
             <div id="login-form">
                 <h1 id="login-head">Login</h1>
-                <form id="login" method="post" onsubmit="return Vali()">
-                    <label> Email: </label>
-                    <br>
-                    <input type="email" name="useremail" id="email">
-                    <br>
-                    <label> Password: </label>
-                    <br>
-                    <input type="text" name="userpassword" id="password">
-                    <br><br>
-                    <button type="submit" name="loginbtn" id="loginbtn" onclick="return Vali()  "> Login </button>
-                </form>
+                <label> Email: </label>
+                <br>
+                <input type="email" name="useremail" id="email">
+                <br>
+                <label> Password: </label>
+                <br>
+                <input type="text" name="userpassword" id="password">
+                <br><br>
+                <button id="loginbtn" > Login </button>
                 <span id="error"></span>
             </div>
         </div>
     </body>
 </html>
-<?php if (isset($_POST['loginbtn'])){
-    include('userlogin.php');
-}
