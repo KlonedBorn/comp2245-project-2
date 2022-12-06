@@ -22,4 +22,30 @@ require 'dbconfig.php';
     }else{
         echo "<p id=\'loginerror\'>Login Failed. Invalid Email-address or Password</p>";
     }
-?> 
+?>
+<!-- 
+// Code for handling form validation.
+// if(empty($_POST['useremail']) || !preg_match ($emailRegex, $_POST['useremail'])){
+//     print("Please enter the correct format for a email");
+//     $emailCondition = false;
+
+// }
+// else{
+//     $email = $_POST['useremail'];
+// }
+
+// if(empty($_POST['password']) || !preg_match ($passwordRegex, $_POST['password'])){
+//    if ($_POST ['password123'] === "password123"){
+//     $password = $_POST['password'];
+//    }else{
+//     print("Please enter the correct password");
+//     $passwordCondition = false;
+//    }
+// }
+// else {
+// $password = $_POST['password'];
+//     if ($password !== "password123"){
+//         $password =  password_hash($password, PASSWORD_DEFAULT);
+//     }
+// }
+ -->

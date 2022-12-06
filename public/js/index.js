@@ -11,15 +11,43 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-import("login.js")
+
+// Created by Kyle King.
+//  Edited by by Deondre Mayers.
 
 const httpRequest = new XMLHttpRequest()
 
-window.onload = (evt) => {
-    httpRequest.onreadystatechange = (evt)=>{
+function Vali() {
+	var password = document.getElementById("password");
+	var loginerr = document.getElementById("error");
+	var email = document.getElementById("email");
+	var errormsg = document.getElementById("error");
+	var check = true;
+	loginerr.innerHTML = "";
+	password.style.borderColor = "black";
+	email.style.borderColor = "black";
+	if (email.value == "") {
+		email.style.borderColor = "red";
+		errormsg.innerHTML = "Please enter all fields";
+		check = false;
+	}
+	if (password.value == "") {
+		password.style.borderColor = "red";
+		errormsg.innerHTML = "Please enter all fields";
+		check = false;
+	}
+	if (check) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+window.onload = () => {
+    httpRequest.onreadystatechange = ()=>{
         if(httpRequest.readyState == XMLHttpRequest.DONE){
             if(httpRequest.status == 200){
-                console.log(httpRequest.responseText);
+                window.location.href = "dashboard.php";
             }
             else
             {
@@ -28,7 +56,7 @@ window.onload = (evt) => {
         }
     }
     const btn_login = document.getElementById('loginbtn')
-    btn_login.onclick = (evt) => {
+    btn_login.onclick = () => {
         const tf_email = document.getElementById('email').value
         const tf_password = document.getElementById('password').value
         Vali()

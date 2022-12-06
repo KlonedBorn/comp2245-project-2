@@ -51,7 +51,7 @@ header h1 {
 	width: 190px;
 	background-color: rgb(216, 216, 216);
 }
-.sidenav img {
+.sidenav img{
 	display: flex;
 	flex-direction: column;
 }
@@ -65,19 +65,8 @@ header h1 {
 	font-weight: bold;
 }
 
+/* Only way to set attributes to side bar for some reason */
 .sidenav .home {
-	display: flex;
-	flex-direction: row;
-}
-.sidenav .adduser {
-	display: flex;
-	flex-direction: row;
-}
-.sidenav .newissue {
-	display: flex;
-	flex-direction: row;
-}
-.sidenav .logout {
 	display: flex;
 	flex-direction: row;
 }
@@ -411,7 +400,6 @@ header h1 {
     height: 30px;
     text-transform: uppercase;
 }
-
 .closestatus{
     background-color: #fc6704;
     border-radius: 3px;
@@ -420,7 +408,6 @@ header h1 {
     width: 120px;
     text-transform: uppercase;
 }
-
 .dashboardtable .statuscontainer{
     display: flex;
     justify-content: center;
@@ -429,9 +416,7 @@ header h1 {
 .hashtag {
 	font-weight: bold;
 }
-
 .issuelink {
 	font-weight: normal;
 	text-decoration: none;
 }
-
