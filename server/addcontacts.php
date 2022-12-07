@@ -11,7 +11,7 @@
     //      $_SESSION["denied"]="denied";
     //     header("Location: dashboard.php");
     // }    
-if (isset($_POST['addBtn'])) 
+if (isset($_POST['addBtn']) || true) 
 {
 $title = $_GET['title'];
 $firstname = $_GET['fname'];
