@@ -17,6 +17,7 @@
 
 const httpRequest = new XMLHttpRequest()
 
+
 function Vali() {
 	var password = document.getElementById("password");
 	var loginerr = document.getElementById("error");
@@ -47,7 +48,19 @@ window.onload = () => {
     httpRequest.onreadystatechange = ()=>{
         if(httpRequest.readyState == XMLHttpRequest.DONE){
             if(httpRequest.status == 200){
-                window.location.href = "dashboard.php";
+                const response = JSON.parse(httpRequest.responseText);
+                const errorlog = document.getElementById('error');
+                switch(response['status']){
+                    case 200:{
+                        window.location.href = "../html/dashboard.html"
+                    };
+                    case 401:{
+                        errorlog.innerHTML =`<p id=\'loginerror\'>${response['message']}</p>`
+                    };
+                    case 422:{
+                        errorlog.innerHTML =`<p id=\'loginerror\'>${response['message']}</p>`
+                    };
+                }
             }
             else
             {
@@ -59,12 +72,9 @@ window.onload = () => {
     btn_login.onclick = () => {
         const tf_email = document.getElementById('email').value
         const tf_password = document.getElementById('password').value
-        Vali()
-        httpRequest.open('GET',`login.php?email=${tf_email}&password=${tf_password}`)
-        httpRequest.send(null)
-        // if( !tx_password.match("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$") )
-        //     alert(`\'${tx_password}\' is not a valid password`)
-        // else
-        //     alert("Password is valid")
+        if(Vali()){
+            httpRequest.open('GET',`../../server/login.php?email=${tf_email}&password=${tf_password}`)
+            httpRequest.send(null)
+        }
     }
 }

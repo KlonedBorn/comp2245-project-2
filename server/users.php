@@ -7,7 +7,7 @@ require_once 'env-config.php';
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href = "styles.css">
-    <script type="text/javascript" src="signup.js"></script>
+    <script type="text/javascript" src="addusers.js"></script>
 </head>
 <body>
     <div class="container">
@@ -18,7 +18,7 @@ $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $p
 $stmt = $conn->query ("SELECT * FROM Users");
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if ($_SESSION['Users']['role'] == "Admin") 
+//if ($_SESSION['Users']['role'] == "Admin") 
 {
 echo 
 "<table>
@@ -40,15 +40,15 @@ endforeach;
 echo "</table>";
 }
 
-elseif ($_SESSION['Users']['role'] == "Member")
-{
-alert("Only Admins may view the users. You are a member.");
-}
+// elseif ($_SESSION['Users']['role'] == "Member")
+// {
+// alert("Only Admins may view the users. You are a member.");
+// }
 
-else 
-{
-alert("Only Admins may view the users. You are not signed in.");
-}
+// else 
+// {
+// alert("Only Admins may view the users. You are not signed in.");
+// }
 
 
 function alert($message) 

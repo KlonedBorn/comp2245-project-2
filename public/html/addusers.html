@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href = "../css/styles.css">
+    <script type="module" src="../js/addusers.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://img.freepik.com/free-vector/cute-dolphin-attractions-sea-cartoon-illustration_138676-2751.jpg?w=740&t=st=1670093975~exp=1670094575~hmac=46c6a2f8fd7a2636f17f5fb58e415730249e834665cb658d302f2470f3ce8ad9">
+            <h1> Dolphin CRM </h1>
+        </header>
+        <div class="sidenav">
+            <ul>
+                <div class="home">
+                    <img height="30px" src="../svg/mid-home.svg">
+                    <a href="dashboard.html" id="dashboard">Home</a>
+                </div>
+                <div class="home">
+                    <img height="30px" src="../svg/account-circle.svg">
+                    <a href="addcontacts.html" id="contacts">New Contact</a>
+                </div>
+                <div class="home">
+                    <img height="30px" src="../svg/group.svg">
+                    <a href="users.html" id="users">Users</a>
+                </div>
+                <div class="home">
+                    <img height="30px" src="../svg/logout.svg">
+                    <a href="login.html" id="logout">Logout</a>
+                </div>
+            </ul>
+        </div>
+        <div id="form1">
+            <h1>New User</h1>
+            
+                <label> Firstname </label><br>
+                <input type="text" name="firstname" id="firstname"><br>
+                <label> Lastname </label><br>
+                <input type="text" name="lastname" id="lastname"><br>
+                <label> Email </label><br>
+                <input type="email" name="email" id="email" placeholder="alright@gmail.com"><br><br>
+                <label> Password </label><br>
+                <input type="text" name="password" id="password"><br>
+                <label> Role </label><br>
+                <select name ="role" id ="role">
+                    <option value ="Admin">Admin</option>
+                    <option selected value = "Member">Member</option>
+                </select>
+                <br>
+                <button type="button" name="addBtn" id="addBtn"> Submit </button>
+                <span id="error"></span>
+           
+            <div id="result"></div>
+        </div>
+    </div>
+</body>
+</html>

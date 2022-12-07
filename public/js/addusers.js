@@ -1,5 +1,4 @@
 //THIS BETTER NOT BE BULLSHIT
-
 const httpRequest = new XMLHttpRequest()
 
 function Adding() {
@@ -61,7 +60,7 @@ window.onload = () => {
             }
             else
             {
-                console.log(`Something went wrong ${httpRequest.status}` )
+                console.log(`Something went wrong ${httpRequest.status}`)
             }
         }
     }
@@ -72,13 +71,10 @@ window.onload = () => {
         const tf_email = document.getElementById('email').value
         const tf_password = document.getElementById('password').value
         const tf_role = document.getElementById('role').value
-        
-        Adding()
-        httpRequest.open('GET',`addusers.php?fname=${tf_name1}&lname=${$tf_name2}&email=${tf_email}&password=${tf_password}&role=${tf_role}`)
-        httpRequest.send(null)
-        // if( !tx_password.match("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$") )
-        //     alert(`\'${tx_password}\' is not a valid password`)
-        // else
-        //     alert("Password is valid")
+        if (Adding()) 
+		{
+			httpRequest.open('POST',`../../server/addusers.php?fname=${tf_name1}&lname=${tf_name2}&email=${tf_email}&password=${tf_password}&role=${tf_role}`)
+			httpRequest.send(null)
+		}
     }
 }
