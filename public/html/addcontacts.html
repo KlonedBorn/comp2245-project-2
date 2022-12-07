@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href = "../css/styles.css">
+    <script type="module" src="../js/addcontacts.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://img.freepik.com/free-vector/cute-dolphin-attractions-sea-cartoon-illustration_138676-2751.jpg?w=740&t=st=1670093975~exp=1670094575~hmac=46c6a2f8fd7a2636f17f5fb58e415730249e834665cb658d302f2470f3ce8ad9">
+            <h1> Dolphin CRM </h1>
+        </header>
+        <div class="sidenav">
+            <ul>
+                <div class="home">
+                    <img height="30px" src="../svg/mid-home.svg">
+                    <a href="dashboard.html" id="dashboard">Home</a>
+                </div>
+                <div class="home">
+                    <img height="30px" src="../svg/account-circle.svg">
+                    <a href="addcontacts.html" id="contacts">New Contact</a>
+                </div>
+                <div class="home">
+                    <img height="30px" src="../svg/group.svg">
+                    <a href="users.html" id="users">Users</a>
+                </div>
+                <div class="home">
+                    <img height="30px" src="../svg/logout.svg">
+                    <a href="login.html" id="logout">Logout</a>
+                </div>
+            </ul>
+        </div>
+        <div id="form1">
+            <h1>New Contact</h1>
+            <label> Title </label><br>
+                <select name ="title" id ="title">
+                    <option value = "Mr.">Mr.</option>
+                    <option value = "Ms.">Ms.</option>
+                    <option value = "Mrs.">Mrs.</option>
+                </select>
+                <br>
+                <label> Firstname </label><br>
+                <input type="text" name="firstname" id="firstname"><br>
+                <label> Lastname </label><br>
+                <input type="text" name="lastname" id="lastname"><br>
+                <label> Email </label><br>
+                <input type="email" name="email" id="email"><br><br>
+                <label> Telephone </label><br>
+                <input type="text" name="telephone" id="telephone"><br>
+                <label> Company </label><br>
+                <input type="text" name="company" id="company"><br>
+                <label> Type </label><br>
+                <select name ="type" id ="type">
+                    <option value = "Sales Lead">Sales Lead</option>
+                    <option value = "Support">Support</option>
+                </select>
+                <br>
+                <label> Assigned To </label><br>
+                <select name ="assigned" id ="assigned"></select>
+                <!----   <?php 
+                 
+                 session_start();
+
+                 require_once 'env-config.php';
+                 $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+                 $stmt = $conn->query ("SELECT * FROM Users");
+                 $results = $stmt->fetchAll(PDO::FETCH_ASSOC); ?>
+                 <option value ="who"> <?php echo $results[0]['firstname']; ?> </option>
+                 ?> --><!-- 
+                 <?php 
+                 session_start();
+                 require_once 'env-config.php';
+                 $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+                 $stmt = $conn->query ("SELECT * FROM Users");
+                 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($results as $employee):
+                       {
+                        ?> -->
+                        <!-- <option value = <?php echo " . $employee['firstname'] . " " .$employee['lastname'] .">" . $employee['firstname'] . " " .$employee['lastname'] . "; ?></option> -->
+                      <!-- <option value = <?php echo "  $employee['firstname'] . ' '  . $employee['lastname']"; ?> <?php echo " $employee['firstname'] . ' ' . $employee['lastname']"; ?> </option>  -->
+                    <!-- <?php }
+                     endforeach; ?>
+                    ?>
+                <br> -->
+                <button type="submit" name="addBtn" id="addBtn"> Submit </button>
+                <span id="error"></span>
+            <div id="result"></div>
+        </div>
+    </div>
+</body>
+</html>
