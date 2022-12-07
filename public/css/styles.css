@@ -16,7 +16,6 @@ header {
 	display: flex;
 	align-items: center;
 }
-
 #login {
 	font-weight: bold;
 }
@@ -326,8 +325,6 @@ header h1 {
     color: rgb(4, 75, 207);
 }
 
-
-
 /*DISPLAY JOB DETAILS*/
 
 #closed {
@@ -419,4 +416,73 @@ header h1 {
 .issuelink {
 	font-weight: normal;
 	text-decoration: none;
+}
+
+.main-container table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+table thead{
+    background-color: #F3F4F6;
+    height: 50px;   
+}
+
+table tbody tr{
+    border-bottom: 1px solid lightgray;
+    height: 40px;
+}
+
+table tbody tr .name{
+    font-weight: bold;
+}
+
+table tbody tr .type button{
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    font-size: 12px;
+    border: none;
+    font-weight: bold;
+}
+
+table tbody tr .type.support button{
+    background-color: #5249E4;
+    color: #F3F3F3;
+}
+table tbody tr .type.lead button{
+    background-color: #F4CE4B;
+}
+
+table tbody tr .email, table tbody tr .company{
+    color: #a7a9b3;
+}
+
+table tbody tr .view{
+    color: #5249E4;
+    cursor: pointer;
+    transition: color 0.2s;
+    -webkit-transition: color 0.2s;
+    -moz-transition: color 0.2s;
+    -ms-transition: color 0.2s;
+    -o-transition: color 0.2s;
+}
+
+table tbody tr .view:hover{
+    color: #2c2883;
+}
+#addBtn{
+	width: 90px;
+	height: 45px;
+	padding: 10px;
+}
+#assigned{
+	width: 175px;
+	height: 45px;
+	padding: 10px;
 }

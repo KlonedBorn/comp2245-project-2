@@ -28,11 +28,19 @@ if( preg_match($passwordRegex,$emailPassword) && preg_match($emailRegex,$email) 
                 $_SESSION['lastname']=$resultsf['lastname'];
                 $_SESSION['user_id']=$resultsf['id'];
                 if(isset($_SESSION['logined_user'])){
-                header("Location:dashboard.php" );
+                    $success_msg = array(
+                        'status' => 200,
+                        'message' => "User succesfully logged in"
+                    );
+                    echo json_encode($success_msg);
                 }
             }
         }else{
-            echo "<p id=\'loginerror\'>Login Failed. Invalid Email-address or Password</p>";
+            $error_msg = array(
+                'status' => 401,
+                'message' => "Login attempt denied. Password incorrect"
+            );
+            echo json_encode($error_msg);
         }
       
     } else{

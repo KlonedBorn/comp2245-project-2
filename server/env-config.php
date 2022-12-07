@@ -2,8 +2,8 @@
     $default_user = array(
         "firstname" => "team",
         "lastname" => "two",
-        "email" => "mickymouse@club.house.com",
-        "password" => "GoofyN33dstoChill",
+        "email" => "admin2@project.com",
+        "password" => "Password123",
         "role" => "group-account"
     );
     $hash_salt = "kmdjd";
