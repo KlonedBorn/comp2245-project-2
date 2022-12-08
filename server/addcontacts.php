@@ -1,7 +1,9 @@
 <?php session_start();
+
     require_once 'env-config.php';
+    require_once(ROOT_PATH . '/addcontacts.php');
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-    $stmt = $conn->query ("SELECT * FROM Users");
+    $stmt = $conn->query ("SELECT * FROM Contacts");
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     // if (!isset($_SESSION['logined_user']))
     // {
@@ -11,7 +13,16 @@
     //      $_SESSION["denied"]="denied";
     //     header("Location: dashboard.php");
     // }    
-if (isset($_POST['addBtn']) || true) 
+
+//include("env-config.php");
+
+$buttonValue = 0;
+if (isset($_GET['buttonValue'])) //might need to be post
+{
+    $buttonValue = 1;
+}
+
+if ($buttonValue == 1) 
 {
 $title = $_GET['title'];
 $firstname = $_GET['fname'];
@@ -20,8 +31,8 @@ $email = $_GET['email'];
 $telephone = $_GET['telephone'];
 $company = $_GET['company'];
 $assigned = $_GET['assigned'];
+$assignedValue =0;
 $type = $_GET['type'];
-$assignedValue = 0;
 
 foreach ($results as $employee):
     {
@@ -46,18 +57,17 @@ $totalChecks = false;
 if ($conn->query($sql) == TRUE ) 
 {
     echo "Contact successfully created.";
-    alert("Contact successfully created.");
+   
 }
 
 else 
 {
     echo "Error: " . $sql . "<br>" . $conn->error;
-    alert(("Error:" . $sql . "<br>" . $conn->error));
 }
 }
 
-function alert($message) 
-{
-echo "<script type = 'text/javascript'> alert($message);< /script>";
+
+
+?>$message);< /script>";
 }
 ?>

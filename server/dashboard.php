@@ -1,5 +1,6 @@
 <?php 
-require_once 'env-config.php';
+    require_once 'env-config.php';
+    require_once(ROOT_PATH . '/dashboard.php');
 ?>
 
 <!DOCTYPE html>
@@ -19,14 +20,14 @@ $stmt = $conn->query ("SELECT * FROM Contacts");
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 //if ( isset($_SESSION['Users']) ) 
-{
+// {
 echo 
 "<table>
 <tr>
 <th>Name</th> <th>Email</th> <th>Company</th> <th>Type</th>
 </tr>";
 
-if ($_POST[''])
+
 foreach ($results as $table): 
     {
         echo 
@@ -39,7 +40,7 @@ foreach ($results as $table):
     }
 endforeach;
 echo "</table>";
-}
+// }
 
 // elseif ($_SESSION['Users']['role'] == "Member")
 // {
@@ -54,7 +55,7 @@ echo "</table>";
 
 function alert($message) 
 {
-echo "<script type = 'text/javascript'> alert($message);< /script>";
+echo "<script type = 'text/javascript'> alert($message);</script>";
 }
 
 ?>

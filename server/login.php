@@ -1,15 +1,13 @@
 <?php
 // Created by Julian Piper.
 // Edited by Kyle King & Dominic Olukoga.
-include("env-config.php");
+require_once 'env-config.php';
 session_start();
 $email = $_GET['email'];
 $emailPassword = $_GET['password'];
 $passwordRegex = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/";
 $emailRegex = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/";
 $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
-// For correct format but wrong information/ data - 401
-// For incorrect format - 422
 
 if( preg_match($passwordRegex,$emailPassword) && preg_match($emailRegex,$email) )
 {

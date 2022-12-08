@@ -1,4 +1,6 @@
 //THIS BETTER NOT BE BULLSHIT
+import {load_content} from './loader.js';
+
 const httpRequest = new XMLHttpRequest()
 
 function Adding() {
@@ -53,6 +55,8 @@ function Adding() {
 }
 
 window.onload = () => {
+	load_content('content','element/header.html')
+	load_content('content','element/sidebar.html')
     httpRequest.onreadystatechange = ()=>{
         if(httpRequest.readyState == XMLHttpRequest.DONE){
             if(httpRequest.status == 200){
@@ -73,7 +77,7 @@ window.onload = () => {
         const tf_role = document.getElementById('role').value
         if (Adding()) 
 		{
-			httpRequest.open('POST',`../../server/addusers.php?fname=${tf_name1}&lname=${tf_name2}&email=${tf_email}&password=${tf_password}&role=${tf_role}`)
+			httpRequest.open('POST',`server/addusers.php?fname=${tf_name1}&lname=${tf_name2}&email=${tf_email}&password=${tf_password}&role=${tf_role}`)
 			httpRequest.send(null)
 		}
     }

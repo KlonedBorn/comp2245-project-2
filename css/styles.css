@@ -20,7 +20,6 @@ header {
 	font-weight: bold;
 }
 #loginbtn {
-	border: none;
 	background-color: #4755d6;
 	height: 50px;
 	width: 200px;
@@ -451,6 +450,32 @@ table tbody tr .type button{
     font-weight: bold;
 }
 
+table 
+{
+	padding:10px;
+	width: 500px;
+}
+
+th
+{
+	color:black;
+}
+
+th, tr, td 
+{
+text-align: left;
+margin-left:auto;
+margin-right:auto;
+padding:5px;
+width:auto;
+}
+
+tr, td 
+{
+	color:gray;
+}
+
+
 table tbody tr .type.support button{
     background-color: #5249E4;
     color: #F3F3F3;
@@ -476,6 +501,7 @@ table tbody tr .view{
 table tbody tr .view:hover{
     color: #2c2883;
 }
+
 #addBtn{
 	width: 90px;
 	height: 45px;

@@ -1,0 +1,28 @@
+<div class = "sidenav">
+    <script>
+    const a_logout = document.getElementById("logout")
+    const logout_url = "server/userlogout.php"
+    a_logout.onclick= () => {
+        httpRequest.open('POST',logout_url)
+        httpRequest.send(null)
+    }
+    </script>
+    <ul>
+        <div class="home">
+            <img height="30px" src="svg/mid-home.svg" alt = "home icon">
+            <a href="home.html" id="dashboard">Home</a>
+        </div>
+        <div class="home">
+            <img height="30px" src="svg/account-circle.svg">
+            <a href="addcontacts.html" id="contacts">New Contact</a>
+        </div>
+        <div class="home">
+            <img height="30px" src="svg/group.svg">
+            <a href="users.html" id="users">Users</a>
+        </div>
+        <div class="home">
+            <img height="30px" src="svg/logout.svg">
+            <a href="login.html" id="logout">Logout</a>
+        </div>
+    </ul>    
+</div>

@@ -1,4 +1,6 @@
 //THIS BETTER NOT BE BULLSHIT
+import {load_content} from './loader.js'
+
 const httpRequest = new XMLHttpRequest()
 
 function Adding() {
@@ -76,9 +78,11 @@ function Adding() {
 		return false;
 	}
 }
+
 const onloadRequest = new XMLHttpRequest()
 window.onload = () => {
-	onloadRequest.open('GET','../../server/employee.php')
+	load_content('content','element/header.html')
+	onloadRequest.open('GET',`server/employee.php`)
 	onloadRequest.send(null)
 	onloadRequest.onreadystatechange = () => {
 		if(onloadRequest.readyState === XMLHttpRequest.DONE) {
@@ -110,9 +114,11 @@ window.onload = () => {
         const tf_company = document.getElementById('company').value
 		const tf_type = document.getElementById('type').value
 		const tf_assigned = document.getElementById('assigned').value
-        if(Adding()){
-			// Form request using http.
-			httpRequest.open('POST',`../../server/addcontacts.php?title=${tf_title}&fname=${tf_name1}&lname=${tf_name2}&email=${tf_email}&telephone=${tf_telephone}&company=${tf_company}&assigned=${tf_assigned}&type=${tf_type}`)
+		const tf_button_value = document.getElementById('addBtn').value
+
+        if(Adding())
+		{
+			httpRequest.open('POST',`server/addcontacts.php?title=${tf_title}&fname=${tf_name1}&lname=${tf_name2}&email=${tf_email}&telephone=${tf_telephone}&company=${tf_company}&assigned=${tf_assigned}&type=${tf_type}&buttonValue=${tf_button_value}`)
         	httpRequest.send(null)
 		}
     }

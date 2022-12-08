@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href = "css/styles.css">
+    <script type="module" src="js/addusers.js"></script>
+    <title>Add Users</title>
+</head>
+<body>
+    <div class="container" id="content">
+        <div id="form1">
+            <h1>New User</h1>
+            
+                <label> Firstname </label><br>
+                <input type="text" name="firstname" id="firstname"><br>
+                <label> Lastname </label><br>
+                <input type="text" name="lastname" id="lastname"><br>
+                <label> Email </label><br>
+                <input type="email" name="email" id="email" placeholder="alright@gmail.com"><br><br>
+                <label> Password </label><br>
+                <input type="text" name="password" id="password"><br>
+                <label> Role </label><br>
+                <select name ="role" id ="role">
+                    <option value ="Admin">Admin</option>
+                    <option selected value = "Member">Member</option>
+                </select>
+                <hr>
+                <button type="button" name="addBtn" id="addBtn"> Submit </button>
+                <span id="error"></span>
+           
+            <div id="result"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,18 +1,6 @@
 <?php 
 require_once 'env-config.php';
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href = "styles.css">
-    <script type="text/javascript" src="addusers.js"></script>
-</head>
-<body>
-    <div class="container">
-        <?php 
-include ("theme.php");
+ 
 session_start();
 $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 $stmt = $conn->query ("SELECT * FROM Users");
@@ -30,7 +18,7 @@ foreach ($results as $table):
     {
         echo 
         "<tr>
-        <td>" . $table['firstname'] . " " .$table['lastname'] . "</td>
+        <td style ='font-weight:bold; color:black;'>" . $table['firstname'] . " " .$table['lastname'] . "</td>
         <td>" . $table['email'] . "</td>
         <td>" . $table['role'] . "</td>
         <td>" . $table['created_at'] . "</td>
@@ -38,6 +26,7 @@ foreach ($results as $table):
     }
 endforeach;
 echo "</table>";
+alert("testing");
 }
 
 // elseif ($_SESSION['Users']['role'] == "Member")
@@ -53,11 +42,7 @@ echo "</table>";
 
 function alert($message) 
 {
-echo "<script type = 'text/javascript'> alert($message);< /script>";
+echo "<script type = 'text/javascript'> alert($message);</script>";
 }
 
 ?>
-
- </div>
-</body>
-</html>

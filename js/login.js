@@ -15,8 +15,11 @@
 // Created by Kyle King.
 //  Edited by by Deondre Mayers.
 
-const httpRequest = new XMLHttpRequest()
+// import {loadHeader} from './load-header.js'
 
+import {load_content} from './loader.js'
+
+const httpRequest = new XMLHttpRequest()
 
 function Vali() {
 	var password = document.getElementById("password");
@@ -51,30 +54,22 @@ window.onload = () => {
                 const response = JSON.parse(httpRequest.responseText);
                 const errorlog = document.getElementById('error');
                 switch(response['status']){
-                    case 200:{
-                        window.location.href = "../html/dashboard.html"
-                    };
-                    case 401:{
-                        errorlog.innerHTML =`<p id=\'loginerror\'>${response['message']}</p>`
-                    };
-                    case 422:{
-                        errorlog.innerHTML =`<p id=\'loginerror\'>${response['message']}</p>`
-                    };
+                    case 200:{  window.location.href = "home.html" };
+                    case 401:{ errorlog.innerHTML =`<p id=\'loginerror\'>${response['message']}</p>`};
+                    case 422:{ errorlog.innerHTML =`<p id=\'loginerror\'>${response['message']}</p>`};
                 }
             }
-            else
-            {
-                console.log(`Something went wrong ${httpRequest.status}` )
-            }
+            else { console.log(`Something went wrong ${httpRequest.status}` ) }
         }
     }
     const btn_login = document.getElementById('loginbtn')
     btn_login.onclick = () => {
         const tf_email = document.getElementById('email').value
         const tf_password = document.getElementById('password').value
-        if(Vali()){
-            httpRequest.open('GET',`../../server/login.php?email=${tf_email}&password=${tf_password}`)
+        if( Vali() ) {
+            httpRequest.open('GET',`server/login.php?email=${tf_email}&password=${tf_password}`)
             httpRequest.send(null)
         }
     }
+    load_content('content','element/header.html')
 }

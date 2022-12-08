@@ -1,4 +1,6 @@
 <?php
+    require_once 'env-config.php';
+    require_once(ROOT_PATH . '/userlogout.php');
 if (!isset($_SESSION))
   {
     session_start();

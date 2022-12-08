@@ -1,6 +1,7 @@
 <?php session_start();
 
     require_once 'env-config.php';
+    require_once(ROOT_PATH . '/addusers.php');
     // if (!isset($_SESSION['logined_user']))
     // {
     // header('Location: userlogout.php');
@@ -57,6 +58,6 @@ else
 
 function alert($message) 
 {
-echo "<script type = 'text/javascript'> alert($message);< /script>";
+echo "<script type = 'text/javascript'> alert($message);</script>";
 }
 ?>

@@ -1,5 +1,6 @@
 <?php session_start();
-require_once 'env-config.php';
+    require_once 'env-config.php';
+    require_once(ROOT_PATH . '/addcontacts.php');
 $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 $stmt = $conn->query ("SELECT * FROM Users");
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
