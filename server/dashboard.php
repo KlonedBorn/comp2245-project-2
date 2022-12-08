@@ -56,6 +56,26 @@ endforeach;
 echo "</table>";
 }
 
+elseif ($buttonValue == 3) 
+{
+foreach ($results as $table): 
+    {
+        if($table['type'] == "Support") 
+        {
+        echo 
+        "<tr>
+        <td>" .$table['title'] . $table['firstname'] . " " .$table['lastname'] . "</td>
+        <td>" . $table['email'] . "</td>
+        <td>" . $table['company'] . "</td>
+        <td>" . $table['type'] . "</td>
+        </tr>";
+        }
+    }
+    
+endforeach;
+echo "</table>";
+}
+
 }
 
 else {echo "No button value found";}
