@@ -82,6 +82,7 @@ function Adding() {
 const onloadRequest = new XMLHttpRequest()
 window.onload = () => {
 	load_content('content','element/header.html')
+	load_content('content','element/sidebar.html')
 	onloadRequest.open('GET',`server/employee.php`)
 	onloadRequest.send(null)
 	onloadRequest.onreadystatechange = () => {
@@ -106,6 +107,8 @@ window.onload = () => {
 		}
 	} 
     btn_add.onclick = () => {
+		load_content('content','element/header.html')
+		load_content('content','element/sidebar.html')
         const tf_title = document.getElementById('title').value
         const tf_name1 = document.getElementById('firstname').value
         const tf_name2 = document.getElementById('lastname').value
@@ -118,7 +121,7 @@ window.onload = () => {
 
         if(Adding())
 		{
-			httpRequest.open('POST',`server/addcontacts.php?title=${tf_title}&fname=${tf_name1}&lname=${tf_name2}&email=${tf_email}&telephone=${tf_telephone}&company=${tf_company}&assigned=${tf_assigned}&type=${tf_type}&buttonValue=${tf_button_value}`)
+			httpRequest.open('POST',`addcontacts.php?title=${tf_title}&fname=${tf_name1}&lname=${tf_name2}&email=${tf_email}&telephone=${tf_telephone}&company=${tf_company}&assigned=${tf_assigned}&type=${tf_type}&buttonValue=${tf_button_value}`)
         	httpRequest.send(null)
 		}
     }

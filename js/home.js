@@ -1,29 +1,24 @@
 import {load_content} from "./loader.js"
-
 import { ensure_session } from "./loader.js"
-
-//THIS BETTER NOT BE BULLSHIT
-import {load_content} from './loader.js'
-
 const httpRequest = new XMLHttpRequest()
 
-const onloadRequest = new XMLHttpRequest()
+const value = 1
 window.onload = () => {
 	load_content('content','element/header.html')
-	onloadRequest.open('GET',`server/employee.php`)
-	onloadRequest.send(null)
-	onloadRequest.onreadystatechange = () => {
-		if(onloadRequest.readyState === XMLHttpRequest.DONE) {
-			if( onloadRequest.status === 200 ) {
-				const sl_assigned = document.getElementById('assigned')
-				sl_assigned.innerHTML = onloadRequest.responseText
-			} else {
-				console.log("Error");
-			}
-		}
+	load_content('content','element/sidebar.html')
+    document.getElementById('contact-add').onclick = () => {
+		window.location.href = "./addcontacts.html"
 	}
-    const btn_add = document.getElementById('addBtn')
-
+	const btn_filters = document.getElementsByClassName('filter-ctrl')
+	for (let index = 0; index < btn_filters.length; index++) {
+		const element = btn_filters[index];
+		element.addEventListener('click', () => {
+			console.log("Button pressed");
+		})
+	}
+	document.getElementById('filter-all').onclick = () =>{
+		console.log("Button pressed");
+	}
 	httpRequest.onreadystatechange = () => {
 		if(httpRequest.readyState === XMLHttpRequest.DONE) {
 			if( httpRequest.status === 200 ) {
@@ -33,7 +28,8 @@ window.onload = () => {
 			}
 		}
 	} 
-    btn_add.onclick = () => {
+
+    btn_filters.onclick = () => {
         const tf_title = document.getElementById('title').value
         const tf_name1 = document.getElementById('firstname').value
         const tf_name2 = document.getElementById('lastname').value
@@ -44,11 +40,9 @@ window.onload = () => {
 		const tf_assigned = document.getElementById('assigned').value
 		const tf_button_value = document.getElementById('addBtn').value
 
-        if(Adding())
-		{
-			httpRequest.open('POST',`server/addcontacts.php?title=${tf_title}&fname=${tf_name1}&lname=${tf_name2}&email=${tf_email}&telephone=${tf_telephone}&company=${tf_company}&assigned=${tf_assigned}&type=${tf_type}&buttonValue=${tf_button_value}`)
+
+			httpRequest.open('POST',`server/dashboard.php?buttonValue=${button_value}`)
         	httpRequest.send(null)
-		}
     }
     ensure_session("server/session.php")
 }
