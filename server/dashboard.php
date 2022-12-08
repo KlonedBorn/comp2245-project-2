@@ -40,7 +40,8 @@ elseif ($buttonValue == 2)
 {
 foreach ($results as $table): 
     {
-        if($table[''] == )
+        if($table['type'] == "Sales Lead") 
+        {
         echo 
         "<tr>
         <td>" .$table['title'] . $table['firstname'] . " " .$table['lastname'] . "</td>
@@ -48,6 +49,7 @@ foreach ($results as $table):
         <td>" . $table['company'] . "</td>
         <td>" . $table['type'] . "</td>
         </tr>";
+        }
     }
     
 endforeach;
