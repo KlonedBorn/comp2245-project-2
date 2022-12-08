@@ -48,16 +48,16 @@ if ($emailCheck)
 if ($conn->query($sql) == TRUE ) 
 {
     echo "User successfully created.";
-    alert("User successfully created.");
+    // alert("User successfully created.");
 }
 else 
 {
     echo "Error: " . $sql . "<br>" . $conn->error;
-    alert(("Error:" . $sql . "<br>" . $conn->error));
+    // alert(("Error:" . $sql . "<br>" . $conn->error));
 }
 
-function alert($message) 
-{
-echo "<script type = 'text/javascript'> alert($message);</script>";
-}
+// function alert($message) 
+// {
+// echo "<script type = 'text/javascript'> alert($message);</script>";
+// }
 ?>

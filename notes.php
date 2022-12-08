@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="styles.css">
-<?php include 'theme.php'
+<?php 
       ?>
  <main>
         <section class="top tag">
