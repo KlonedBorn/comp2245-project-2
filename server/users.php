@@ -1,12 +1,14 @@
 <?php 
 require_once 'env-config.php';
- 
-session_start();
+require_once 'session.php';
+
 $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 $stmt = $conn->query ("SELECT * FROM Users");
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-//if ($_SESSION['Users']['role'] == "Admin") 
+if ( isset($_SESSION['role']) )
+{
+if ($_SESSION['role'] == "Admin") 
 {
 echo 
 "<table>
@@ -29,15 +31,17 @@ echo "</table>";
 alert("testing");
 }
 
-// elseif ($_SESSION['Users']['role'] == "Member")
-// {
-// alert("Only Admins may view the users. You are a member.");
-// }
+elseif ($_SESSION['role'] == "Member")
+{
+alert("Only Admins may view the users. You are a member.");
+}
 
-// else 
-// {
-// alert("Only Admins may view the users. You are not signed in.");
-// }
+else 
+{
+alert("Only Admins may view the users. You are not signed in.");
+}
+
+}
 
 
 function alert($message) 

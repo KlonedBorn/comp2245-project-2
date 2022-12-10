@@ -13,7 +13,6 @@
 // limitations under the License.
 
 export function load_content(id,fn){
-    console.log(`div id: ${id}, filename: ${fn}`)
     let xhttp;
     let element = document.getElementById(id)
     let file = fn
@@ -51,6 +50,6 @@ export function ensure_session(session){
             }
         }
     }
-    xhttp.open('GET','server/session.php',false)
+    xhttp.open('GET','server/session.php',true)
     xhttp.send(null)
 }

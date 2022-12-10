@@ -3,7 +3,7 @@ import { ensure_session } from "./loader.js"
 
 const httpRequest = new XMLHttpRequest()
 
-var button_value = 1
+var button_value = 2
 // window.onload = () => {
 // 	load_content('content','element/header.html')
 // 	load_content('content','element/sidebar.html')
