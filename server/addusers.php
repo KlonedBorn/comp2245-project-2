@@ -1,7 +1,8 @@
-<?php session_start();
+<?php 
 
-    require_once 'env-config.php';
-    require_once(ROOT_PATH . '/addusers.php');
+require_once 'init-env.php';
+require_once 'session.php';
+
     // if (!isset($_SESSION['logined_user']))
     // {
     // header('Location: userlogout.php');
@@ -11,8 +12,11 @@
     //     header("Location: dashboard.php");
     // }    
     ?>
+    
 <?php 
-include("env-config.php");
+if ($_SESSION['role'] == "Admin") 
+{
+
 $firstname = $_GET['fname'];
 $lastname = $_GET['lname'];
 $email = $_GET['email'];
@@ -26,6 +30,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $emailCheck = true;
 $passwordCheck = false;
 $totalChecks = false;
+
 foreach($results as $table): 
     {
         if ($email == $table['email']) 
@@ -48,16 +53,17 @@ if ($emailCheck)
 if ($conn->query($sql) == TRUE ) 
 {
     echo "User successfully created.";
-    // alert("User successfully created.");
+    alert("User successfully created.");
 }
 else 
 {
     echo "Error: " . $sql . "<br>" . $conn->error;
-    // alert(("Error:" . $sql . "<br>" . $conn->error));
+    alert(("Error:" . $sql . "<br>" . $conn->error));
+}
 }
 
-// function alert($message) 
-// {
-// echo "<script type = 'text/javascript'> alert($message);</script>";
-// }
+function alert($message) 
+{
+echo "<script type = 'text/javascript'> alert('".$message."');</script>";
+}
 ?>
