@@ -1,9 +1,7 @@
-import {load_content} from "./loader.js"
-import { ensure_session } from "./loader.js"
+import { verify_php_session } from './utils.js'
 
 const httpRequest = new XMLHttpRequest()
 
-var button_value = 2
 // window.onload = () => {
 // 	load_content('content','element/header.html')
 // 	load_content('content','element/sidebar.html')
@@ -30,11 +28,24 @@ var button_value = 2
 // 		}
 // 	} 
 
-
-    fetch(`server/dashboard.php?buttonValue=${button_value}`)
+window.onload = (evt) => {
+    verify_php_session()
+    var button_value = document.getElementById("filter-all").value
+   var allButtons = document.getElementsByClassName("filter-ctrl")
+    for (var i = 0; i < allButtons.length; i++)  {
+        const element = allButtons[i];
+        element.onclick = () => {
+            button_value = element.getAttribute('value')
+            fetch(`php/home.php?buttonValue=${button_value}`)
+       .then(response => response.text())
+       .then( data => {
+           document.getElementById("contacts-table").innerHTML = data
+       })
+        }
+    }
+    fetch(`php/home.php?buttonValue=${button_value}`)
     .then(response => response.text())
     .then( data => {
-    document.getElementById("contacts-table").innerHTML = data})
-    
-    ensure_session("../server/session.php")
-// }
+        document.getElementById("contacts-table").innerHTML = data
+    })
+}

@@ -12,3 +12,6 @@
 - Go to [final-project](.).
 - Login using default/admin user in [env-config](/server/env-config.php).
 - Use website to your discretion.
+TO DO - switch all AJax class to fetch or convert to aysnc.
+TO DO - Inform user of specific phone number formats.
+Ensure Lyn-Fatt knows to add his own admin user to login to website. (Use SQL)

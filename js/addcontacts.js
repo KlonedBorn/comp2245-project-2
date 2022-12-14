@@ -1,9 +1,24 @@
 //THIS BETTER NOT BE BULLSHIT
-import {load_content} from './loader.js'
+import { execute_http_request } from './utils.js'
+import { verify_php_session } from './utils.js'
+import {validate_form} from './utils.js'
 
 const httpRequest = new XMLHttpRequest()
+const form_fields = new Array(
+	'firstname',
+	'lastname',
+	'email',
+	'telephone',
+);
 
-function Adding() {
+const form_patterns = new Array(
+	"^[a-z ,.'-]+$",
+	"^[a-z ,.'-]+$",
+	"^[a-zA-Z0-9_-]+@[a-zA-Z_-]+?\\.[a-zA-Z]{2,3}$",
+	"^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}$",
+);
+
+function verify_fields() {
 	var title = document.getElementById("title");
 	var fname = document.getElementById("firstname");
     var lname = document.getElementById("lastname");
@@ -14,7 +29,7 @@ function Adding() {
 	var assigned = document.getElementById("assigned");
 	var errormsg = document.getElementById("error");
 	var check = true;
-	errormsg.innerHTML = "";
+	errormsg.innerText = "";
     title.style.borderColor = "black";
     fname.style.borderColor = "black";
     lname.style.borderColor = "black";
@@ -26,13 +41,13 @@ function Adding() {
 	
 	if (title.value == "") {
 		title.style.borderColor = "red";
-		errormsg.innerHTML = "Please enter all fields";
+		errormsg.innerText = "Please enter all fields";
 		check = false;
 	}
 
     if (fname.value == "") {
 		fname.style.borderColor = "red";
-		errormsg.innerHTML = "Please enter all fields";
+		errormsg.innerText = "Please enter all fields";
 		check = false;
 	}
 
@@ -81,34 +96,26 @@ function Adding() {
 
 const onloadRequest = new XMLHttpRequest()
 window.onload = () => {
-	load_content('content','element/header.html')
-	load_content('content','element/sidebar.html')
-	onloadRequest.open('GET',`server/employee.php`)
-	onloadRequest.send(null)
-	onloadRequest.onreadystatechange = () => {
-		if(onloadRequest.readyState === XMLHttpRequest.DONE) {
-			if( onloadRequest.status === 200 ) {
-				const sl_assigned = document.getElementById('assigned')
-				sl_assigned.innerHTML = onloadRequest.responseText
-			} else {
-				console.log("Error");
-			}
-		}
-	}
+    verify_php_session()
+    document.getElementById('assigned').innerHTML =execute_http_request('GET','php/employee.php',null)
     const btn_add = document.getElementById('addBtn')
-
 	httpRequest.onreadystatechange = () => {
 		if(httpRequest.readyState === XMLHttpRequest.DONE) {
 			if( httpRequest.status === 200 ) {
-				console.log(httpRequest.responseText)
+				alert(httpRequest.responseText)
+				const in_all = document.getElementsByTagName('input')
+				for (const input in in_all) {
+					if (Object.hasOwnProperty.call(in_all, input)) {
+						const element = in_all[input];
+						element.value = ""
+					}
+				}
 			} else {
-				console.log("Error");
+				alert("Error");
 			}
 		}
 	} 
     btn_add.onclick = () => {
-		load_content('content','element/header.html')
-		load_content('content','element/sidebar.html')
         const tf_title = document.getElementById('title').value
         const tf_name1 = document.getElementById('firstname').value
         const tf_name2 = document.getElementById('lastname').value
@@ -119,9 +126,9 @@ window.onload = () => {
 		const tf_assigned = document.getElementById('assigned').value
 		const tf_button_value = document.getElementById('addBtn').value
 
-        if(Adding())
+        if(validate_form(form_fields,form_patterns))
 		{
-			httpRequest.open('POST',`addcontacts.php?title=${tf_title}&fname=${tf_name1}&lname=${tf_name2}&email=${tf_email}&telephone=${tf_telephone}&company=${tf_company}&assigned=${tf_assigned}&type=${tf_type}&buttonValue=${tf_button_value}`)
+			httpRequest.open('POST',`./php/addcontacts.php?title=${tf_title}&fname=${tf_name1}&lname=${tf_name2}&email=${tf_email}&telephone=${tf_telephone}&company=${tf_company}&assigned=${tf_assigned}&type=${tf_type}&buttonValue=${tf_button_value}`)
         	httpRequest.send(null)
 		}
     }

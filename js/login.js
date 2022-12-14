@@ -1,75 +1,69 @@
-// Copyright 2022 COMP-2245 Team 2
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+import { execute_http_request } from './utils.js'
+import { include_html } from './utils.js'
+import { loggedin } from './utils.js'
 
-// Created by Kyle King.
-//  Edited by by Deondre Mayers.
 
-// import {loadHeader} from './load-header.js'
+// Checks if email and password input fields are empty or not.
+function onclick_validate() {
+    const inp_email = document.getElementById('email')
+    const tooltips = document.getElementsByClassName('tooltip')
+    const tt_email = tooltips[0]
+    const tt_password = tooltips[1]
+    const inp_pswd = document.getElementById('password')
+    const spn_error = document.getElementById('error')
 
-import {load_content} from './loader.js'
+    // TO-DO / Find a way to animate tooltips for email and password login
+    spn_error.innerHTML = ""
+	inp_pswd.style.borderColor = "black"
+	inp_email.style.borderColor = "black"
+    tt_email.style.display = 'none'
+    tt_password.style.display = 'none'
+    
+    // TO-DO / do front end form validation using regex pattern for input fields.
+    const re_email = RegExp("^[a-zA-Z0-9_-]+@[a-zA-Z_-]+?\\.[a-zA-Z]{2,3}$",'gm')
+    const re_pswd = RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$",'gm')
 
-const httpRequest = new XMLHttpRequest()
-
-function Vali() {
-	var password = document.getElementById("password");
-	var loginerr = document.getElementById("error");
-	var email = document.getElementById("email");
-	var errormsg = document.getElementById("error");
-	var check = true;
-	loginerr.innerHTML = "";
-	password.style.borderColor = "black";
-	email.style.borderColor = "black";
-	if (email.value == "") {
-		email.style.borderColor = "red";
-		errormsg.innerHTML = "Please enter all fields";
-		check = false;
+	if (inp_email.value == "" || re_email.exec(inp_email.value) == null ) {
+		inp_email.style.borderColor = "red"
+        tt_email.style.display = 'flex'
+		spn_error.innerHTML = "Please enter all fields"
+		return false
 	}
-	if (password.value == "") {
-		password.style.borderColor = "red";
-		errormsg.innerHTML = "Please enter all fields";
-		check = false;
+	if (password.value == "" || re_pswd.exec(inp_pswd.value) == null) {
+		password.style.borderColor = "red"
+        tt_password.style.display = 'flex'
+		spn_error.innerHTML = "Please enter all fields"
+		return false
 	}
-	if (check) {
-		return true;
-	} else {
-		return false;
-	}
+    return true
 }
+function onclick_login() {
+    const inp_email = document.getElementById('email').value
+    const inp_pswd = document.getElementById('password').value
+    if(onclick_validate()){
+        const results = execute_http_request('GET',`./php/login.php?email=${inp_email}&password=${inp_pswd}`,null)
+        try {
+            const res = JSON.parse(results)
 
-window.onload = () => {
-    httpRequest.onreadystatechange = ()=>{
-        if(httpRequest.readyState == XMLHttpRequest.DONE){
-            if(httpRequest.status == 200){
-                const response = JSON.parse(httpRequest.responseText);
-                const errorlog = document.getElementById('error');
-                switch(response['status']){
-                    case 200:{  window.location.href = "home.html" };
-                    case 401:{ errorlog.innerHTML =`<p id=\'loginerror\'>${response['message']}</p>`};
-                    case 422:{ errorlog.innerHTML =`<p id=\'loginerror\'>${response['message']}</p>`};
+            switch(res['status']){
+                case 200: {
+                    // localStorage.setItem('Session-Id',res['session-d'])
+                    window.location.href = './home.html'
+                } break;
+                default: {
+                    document.getElementById('error').innerText = res['message']
                 }
             }
-            else { console.log(`Something went wrong ${httpRequest.status}` ) }
+        } catch (SyntaxError) {
+            console.error('Illegal JSON notation encountered\nresponse text: ' + results)
         }
     }
+}
+
+window.onload = (evt) => {
+    loggedin()
+    include_html()
     const btn_login = document.getElementById('loginbtn')
-    btn_login.onclick = () => {
-        const tf_email = document.getElementById('email').value
-        const tf_password = document.getElementById('password').value
-        if( Vali() ) {
-            httpRequest.open('GET',`server/login.php?email=${tf_email}&password=${tf_password}`)
-            httpRequest.send(null)
-        }
-    }
-    load_content('content','element/header.html')
+    btn_login.onclick = onclick_login
+    const spn_error = document.getElementById('error')
 }

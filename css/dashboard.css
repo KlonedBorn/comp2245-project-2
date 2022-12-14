@@ -57,13 +57,3 @@
 .table-wrapper{
     border-radius: 20px;
 }
-thead{
-    background-color: gray;
-}
-table {
-    width: 100%;
-    align-items: center;
-}
-td{
-    text-align: center;
-}

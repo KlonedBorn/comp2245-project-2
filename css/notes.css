@@ -1,0 +1,39 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.icon{
+    height: 30px;
+}
+.profile{
+    height: 50px;
+}
+header{
+    display: flex;
+    flex-direction: row;
+}
+.flex-row-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+    /* Add styles to space each value */
+}
+
+.toolbar-btn{
+    border-radius: 8px;
+    width: auto;
+    height: 40px;
+    padding: 10px 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size:16px4;
+}
+#assign{
+    background-color: greenyellow;
+    color: white;
+}
+#switch{
+    background-color: rgb(224, 205, 27);
+    color: white;  
+}

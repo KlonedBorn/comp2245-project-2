@@ -5,6 +5,25 @@ body {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
 		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+.shake {
+	animation: shake 0.5s;
+  
+	animation-iteration-count: 2;
+  }
+  
+  @keyframes shake {
+	0% { transform: translate(1px, 1px) rotate(0deg); }
+	10% { transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { transform: translate(-3px, 0px) rotate(1deg); }
+	30% { transform: translate(3px, 2px) rotate(0deg); }
+	40% { transform: translate(1px, -1px) rotate(1deg); }
+	50% { transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { transform: translate(-3px, 1px) rotate(0deg); }
+	70% { transform: translate(3px, 1px) rotate(-1deg); }
+	80% { transform: translate(-1px, -1px) rotate(1deg); }
+	90% { transform: translate(1px, 2px) rotate(0deg); }
+	100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
 header {
 	background-color: black;
 	position: absolute;
@@ -18,6 +37,10 @@ header {
 }
 #login {
 	font-weight: bold;
+}
+#login-form{
+	display: flex;
+	flex-direction: column;
 }
 #loginbtn {
 	background-color: #4755d6;
@@ -39,6 +62,13 @@ header {
 header h1 {
 	margin-left: 15px;
 	padding: 9px;
+	color:white;
+}
+
+h1 {
+	margin-left: 15px;
+	padding: 9px;
+	color:purple;
 }
 
 .sidenav {
@@ -48,6 +78,9 @@ header h1 {
 	height: 120%;
 	width: 190px;
 	background-color: rgb(216, 216, 216);
+}
+.sidenav .nav-item{
+	display: inline-flex;
 }
 .sidenav img{
 	display: flex;
@@ -127,7 +160,9 @@ header h1 {
 	box-sizing: border-box;
 	box-shadow: 5px 5px 5px rgb(230, 230, 230);
 }
-
+#email:hover .tooltip:nth-child(1){
+	visibility: visible;
+}
 #form1btn {
 	border: none;
 	background-color: #4755d6;
@@ -241,6 +276,28 @@ header h1 {
 	box-sizing: border-box;
 	box-shadow: 5px 5px 5px rgb(230, 230, 230);
 }
+
+.label-spanners
+{
+	padding : 10px;
+	color : black;
+	background-color : #785d7c;
+	font-style : italic;
+	font-family: 'Trocchi', serif; 
+	font-size: 45px; 
+	line-height: 48px; 
+}
+
+.info-item
+{
+	padding : 5px;
+	color : #785d7c;
+	font-family: 'Lato',sans-serif;
+	font-size: 20px; 
+	line-height: 48px; 
+}
+
+
 
 #description {
 	width: 500px;
@@ -453,7 +510,7 @@ table tbody tr .type button{
 table 
 {
 	padding:10px;
-	width: 500px;
+	width: 1000px;
 }
 
 th
@@ -511,4 +568,37 @@ table tbody tr .view:hover{
 	width: 175px;
 	height: 45px;
 	padding: 10px;
+}
+
+#SalesLead 
+{	
+	background-color : yellow;
+	color:purple;
+	text-transform: uppercase;
+	text-align : center; 
+	border-radius: 50%;
+	font-weight : bold;
+}
+
+#Support
+{
+	background-color : purple;
+	color:white;
+	text-transform: uppercase;
+	text-align : center;
+	border-radius: 50%;
+	font-weight : bold;
+}
+
+.buttonSubmit 
+{
+	background-color: purple;
+	color:white;
+	border-radius : 25px;
+	vertical-align: middle;
+}
+
+#telephone 
+{
+	width : 500px;
 }

@@ -1,13 +1,14 @@
-import {load_content} from "./loader.js"
-import { ensure_session } from "./loader.js"
+import { verify_php_session } from "./utils.js"
 
 window.onload = () => {
-    load_content('content','element/header.html')
-    load_content('content','element/sidebar.html')
-    ensure_session("server/session.php")
+    const request = verify_php_session()
+    if( request['role'] != 'Admin') {
+        document.getElementById('add-user').style.display = 'none'
+        
+    }
 }
 
-fetch(`server/users.php`)
+fetch(`php/users.php`)
 .then(response => response.text())
 .then( data => {
 document.getElementById("users-table").innerHTML = data})
