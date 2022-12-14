@@ -1,0 +1,58 @@
+<!--
+    User logs in with email & password. Then a session is made using php
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" href="./css/tooltip.css">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>                    
+        <link rel="stylesheet" href="./css/styles.css">
+        <script type="module" src="./js/login.js"></script>
+        <script type = "text/javascript">
+            function changeHashOnLoad() {
+                window.location.href += "#";
+                setTimeout("changeHashAgain()", "50");
+            }
+        
+            function changeHashAgain() 
+            {          
+                window.location.href += "1";
+            }
+        
+            var storedHash = window.location.hash;
+            window.setInterval(function () {
+                if (window.location.hash != storedHash) {
+                    window.location.hash = storedHash;
+                }
+            }, 50); 
+            </script>
+        <title>Login</title>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <img src="https://img.freepik.com/free-vector/cute-dolphin-attractions-sea-cartoon-illustration_138676-2751.jpg?w=740&t=st=1670093975~exp=1670094575~hmac=46c6a2f8fd7a2636f17f5fb58e415730249e834665cb658d302f2470f3ce8ad9"><h1> Dolphin CRM </h1>
+            </header>
+            <div id="login-form">
+                <h1 id="login-head">Login</h1>
+                <div class="tooltips">
+                    <label for="email"> Email: </label> <br>
+                    <span class="tooltip bottom-arrow"><i class="fa fa-warning"></i>Example user@domain.com</span>
+                    <input class="tooltip-target" type="email" name="useremail" id="email"> <br>    
+                </div>
+                <div class="tooltips">
+                    <label for="password">Password:</label><br>
+                    <span class="tooltip bottom-arrow"><i class="fa fa-warning"></i>Atleast 1 upper&lowercase letter, 1 digit & 8 characters long </span>
+                    <input class="tooltip-target" title="Password" type="password" name="userpassword" id="password"><br>
+                </div>
+                <br>
+                <button id="loginbtn">Login</button>
+                <span id="error"></span>
+            </div>
+        </div>
+    </body>
+</html>

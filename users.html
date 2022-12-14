@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="#">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>                    
+        <link rel="stylesheet" href="./css/styles.css">
+        <script type="module" src="./js/user.js"></script>
+        <title>Users</title>
+    </head>
+    <body>
+        <div class="container">
+            <header><img src="https://img.freepik.com/free-vector/cute-dolphin-attractions-sea-cartoon-illustration_138676-2751.jpg?w=740&t=st=1670093975~exp=1670094575~hmac=46c6a2f8fd7a2636f17f5fb58e415730249e834665cb658d302f2470f3ce8ad9"><h1> Dolphin CRM </h1></header>
+            <div class = "sidenav">
+                <ul>
+                    <div class="nav-item">
+                        <img src="img/svg/mid-home.svg" alt = "home icon">
+                        <a href="home.html" id="dashboard">Home</a>
+                    </div>
+                    <div class="nav-item">
+                        <img src="img/svg/account-circle.svg">
+                        <a href="addcontacts.html" id="contacts">New Contact</a>
+                    </div>
+                    <div class="nav-item">
+                        <img src="img/svg/group.svg">
+                        <a href="users.html" id="users">Users</a>
+                    </div>
+                    <div class="nav-item">
+                        <img src="img/svg/logout.svg">
+                        <a href="php/logout.php" id="logout">Logout</a>
+                    </div>
+                </ul>    
+            </div>
+            <h1>Users</h1>
+            <span class="table-toolbar">
+            <a href ="addusers.html">
+                <button class = "action-btn rounded buttonSubmit" id = 'add-user'>
+                <img src = "./img/svg/plus.svg" alt = "plus icon">
+                Add User
+            </button>
+            </a>
+            </span>
+            <hr>
+            <div id = "users-table">
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/notes.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script type="module" src="./js/notes.js"></script>
+    <title>Notes</title>
+</head>
+<body>
+    <div class="container">
+        <header ><img src="https://img.freepik.com/free-vector/cute-dolphin-attractions-sea-cartoon-illustration_138676-2751.jpg?w=740&t=st=1670093975~exp=1670094575~hmac=46c6a2f8fd7a2636f17f5fb58e415730249e834665cb658d302f2470f3ce8ad9"><h1> Dolphin CRM </h1></header>
+        <div class = "sidenav">
+            <ul>
+                <div class="nav-item">
+                    <img src="img/svg/mid-home.svg" alt = "home icon">
+                    <a href="home.html" id="dashboard">Home</a>
+                </div>
+                <div class="nav-item">
+                    <img src="img/svg/account-circle.svg">
+                    <a href="addcontacts.html" id="contacts">New Contact</a>
+                </div>
+                <div class="nav-item">
+                    <img src="img/svg/group.svg">
+                    <a href="users.html" id="users">Users</a>
+                </div>
+                <div class="nav-item">
+                    <img src="img/svg/logout.svg">
+                    <a href="php/logout.php" id="logout">Logout</a>
+                </div>
+            </ul>    
+        </div>
+    <div class="sub-header">
+        <div class="flex-row-item">
+            <img class="profile" src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="profile icon" >
+            <div class="text-stack" id="prefix-info">
+             <!-- Populated by notes.php -->
+            <h1>No Content</h1>
+            </div>
+        </div>
+        <div class="flex-row-item">
+            <button class="toolbar-btn" id="assign">
+                <img class="icon" src="https://cdn-icons-png.flaticon.com/512/7127/7127833.png" alt="hand icon" >
+                Assign to me
+            </button>
+            <button class="toolbar-btn" id="switch">
+                <img class="icon" src="https://cdn-icons-png.flaticon.com/512/318/318147.png" alt="swap arrows icon" >
+                Switch type
+            </button>
+        </div>
+    </div>
+    <hr>
+    <main>
+        <div class="balance-grid main-div" id="further-info">
+            <!-- Populated by notes.php -->
+            <h1>No Content</h1>
+        </div>
+        <div class="main-div">
+            <span>
+                <img class="icon" src="https://cdn-icons-png.flaticon.com/512/1001/1001371.png" alt="" ;>
+                Notes
+            </span>
+            <hr>
+            <div class="flex-column" id="note-container">
+                <!-- Populated by notes.php -->
+                <h1>No Content</h1>
+            </div>
+            <div class="note-input">
+                <label for="textfield">
+                    <textarea id="textfield-input" type="text" placeholder="Enter details here"></textarea>
+                </label>
+                <button class="toolbar-btn buttonSubmit" id="add-notes">Add Notes</button>
+            </div>
+        </div>
+    </main>
+    </div>
+</body>
+</html>
